@@ -1,8 +1,8 @@
 FROM ubuntu:14.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN echo 'Acquire::http::Proxy "${http_proxy}";' >> /etc/apt/apt.conf \
-&& echo 'Acquire::https::Proxy "${http_proxy}";' >> /etc/apt/apt.conf \
+RUN echo 'Acquire::http::Proxy "' ${http_proxy} '";' >> /etc/apt/apt.conf \
+&& echo 'Acquire::https::Proxy "' ${http_proxy} '";' >> /etc/apt/apt.conf \
 && cat /etc/apt/apt.conf \
 && apt-get update
 
